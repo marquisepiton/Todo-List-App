@@ -5,12 +5,12 @@ For this project, I create a online to-do list app using React. This app will ma
 
 # Skills I will showcase:
 
-- React Fundamental: 
-        - React Render
-        - Classes
-        - React Lifecycle
+        - React Fundamental: 
+                - React Render
+                - Classes
+                - React Lifecycle
 
-- Design patterns
+        - Design patterns
 
 
 ![](./img/todolist.webp)
