@@ -23,20 +23,24 @@ function List(props) {
                   function clickCreate() {
                     props.CreateTask();
                   }
+
+                  function clickComplete() {
+                    props.MarkDoneTask(task.id);
+                  }
                   // Turn this into a component
                   return (
                     <li key={index} className="list-group-item">
                       <input
-                        id='task'
+                        id="task"
                         className="form-check-input"
                         type="radio"
                         name="radioNoLabel"
                         id="radioNoLabel1"
                         value=""
                         aria-label="..."
-                        onClick={clickCreate} 
+                        onClick={clickComplete}
                       ></input>
-                      {task.desc} 
+                      {task.desc}
                       <button onClick={clickDelete}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
