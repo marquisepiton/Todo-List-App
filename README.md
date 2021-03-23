@@ -11,6 +11,7 @@ For this project, I create a online to-do list app using React. This app will ma
                 - React Lifecycle
 
         - Design patterns
+                - Parent and child relationship
 
 
 ![](./img/todolist.webp)
