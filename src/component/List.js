@@ -13,15 +13,16 @@ function List(props) {
             <div className="card">
               <ul className="list-group list-group-flush">
                 <li className="list-group-item">
-                  <input placeholder="What needs to be done?"></input>
+                  <input
+                    placeholder="What needs to be done?"
+                    value={props.input}
+                    onChange={props.CreateTask}
+                  ></input>
                 </li>
                 {/* List of task of here.  */}
                 {props.tasks.map((task, index) => {
                   function clickDelete() {
                     props.DeleteTask(task.id);
-                  }
-                  function clickCreate() {
-                    props.CreateTask();
                   }
 
                   function clickComplete() {

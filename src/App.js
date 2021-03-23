@@ -14,6 +14,7 @@ class App extends React.Component {
 
     this.DeleteTask = this.DeleteTask.bind(this);
     this.MarkDoneTask = this.MarkDoneTask.bind(this);
+    this.CreateTask = this.CreateTask.bind(this);
 
     this.state = {
       tasks: [
@@ -21,6 +22,8 @@ class App extends React.Component {
         { id: 2, desc: "Something2", completed: false, created_at: 123456 },
         { id: 3, desc: "Something3", completed: false, created_at: 123456 },
       ],
+      input: ""
+
     };
   }
   render() {
@@ -33,6 +36,7 @@ class App extends React.Component {
           CreateTask={this.CreateTask}
           DeleteTask={this.DeleteTask}
           MarkDoneTask={this.MarkDoneTask}
+          input={this.state.input}
         />
       </div>
     );
@@ -44,25 +48,23 @@ class App extends React.Component {
       tasks: filteredTasks,
     });
   }
-  CreateTask(id) {}
+  CreateTask() {
+
+    this.setState({
+
+      // This is where i left off. 
+
+
+      
+    })
+
+
+  }
 
   // Mark the task complete when the user clicks the radio "O" button.
   MarkDoneTask(id) {
-    //filteredCompleted = this.state.tasks.filter((tasks) => tasks.id === id);
-
-    /*
-     const found = array1.map(element => {
-  
-  if(element === 12){
-   element = 1000; 
-  }
-   return  element; 
- });
-
-    */
-
-    let mapTasks = this.state.tasks.map( task => {
-      if(task.id === id){
+    let mapTasks = this.state.tasks.map((task) => {
+      if (task.id === id) {
         task.completed = !task.completed;
       }
       return task;
@@ -70,8 +72,6 @@ class App extends React.Component {
     this.setState({
       tasks: mapTasks,
     });
-   
   }
-  componentDidUpdate() {}
 }
 export default App;
