@@ -17,15 +17,12 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
 
     this.state = {
-      tasks: [
-       
-      ],
+      tasks: [],
       input: "",
       // new variable to save current filter state
       filterState: "all",
 
-
-      numberOfTask: 0, 
+      numberOfTask: 0,
     };
   }
   // Deletes the task when the user clicks the "X" button.
@@ -33,7 +30,7 @@ class App extends React.Component {
     let filteredTasks = this.state.tasks.filter((tasks) => tasks.id != id);
     this.setState({
       tasks: filteredTasks,
-      numberOfTask: this.state.numberOfTask - 1
+      numberOfTask: this.state.numberOfTask - 1,
     });
   }
   // Mark the task complete when the user clicks the radio "O" button.
@@ -64,25 +61,24 @@ class App extends React.Component {
     });
   }
   handleChange(event) {
-    this.setState({input: event.target.value});
+    this.setState({ input: event.target.value });
   }
   handleSubmit(event) {
     let newObject = {
-      // Change this to not look at task length. 
+      // Change this to not look at task length.
       id: Date.now(),
       desc: this.state.input,
       completed: false,
       created_at: Date.now(),
-  
     };
     console.log(this.state.numberOfTask);
 
     this.setState({
       tasks: [...this.state.tasks, newObject],
       input: "",
-      numberOfTask: this.state.numberOfTask + 1  
+      numberOfTask: this.state.numberOfTask + 1,
     });
-   
+
     event.preventDefault();
   }
   render() {
@@ -112,44 +108,51 @@ class App extends React.Component {
       }
     };
     return (
-      <div className="App">
-        <div className="container">
-          <div className="row">
-            <div className="col-sm"></div>
-            <div className="col-sm">
-              <h1>To-dos!</h1>
-              <div className="card">
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item">
-                    <form onSubmit={this.handleSubmit}>
-                    <input
-                      
-                      placeholder="What needs to be done?" 
-                      value={this.state.input}
-                      onChange={this.handleChange}
-
-                    ></input>
-                    </form>
-                  
-                  </li>
-                  {this.state.tasks.filter(filterHelper).map(mapHelper)}
-                </ul>
-                <div className="card-footer">
-                  <div className="container">
-                    <div className="row">
-                      <div className="col-sm"></div>
-                      <div className="col-sm"></div>
-                      {this.state.numberOfTask} items left
-                      <button onClick={this.GetAllTask}>All</button>
-                      <button onClick={this.GetActiveTask}>Active</button>
-                      <button onClick={this.GetCompletedTask}>Completed</button>
-                      <div className="col-sm"></div>
+      <div className='whole'>
+        <div className="App">
+          <div className="container">
+            <div className="row">
+              <div className="col-sm"></div>
+              <div className="col-sm">
+                <h1>To-dos!</h1>
+                <div className="thisCard">
+                <div className="card">
+                  <ul className="list-group list-group-flush">
+                    <li className="list-group-item">
+                      <form onSubmit={this.handleSubmit}>
+                        <input
+                          placeholder="What needs to be done?"
+                          value={this.state.input}
+                          onChange={this.handleChange}
+                        ></input>
+                      </form>
+                    </li>
+                    {this.state.tasks.filter(filterHelper).map(mapHelper)}
+                  </ul>
+                  <div className="card-footer">
+                    <div className="container">
+                      <div className="row">
+                        <div className="col-sm"></div>
+                        <div className="col-sm"></div>
+                        <div className='item'>
+                        {this.state.numberOfTask} items left
+                        </div>
+                        <div className="taskButtons">
+                        <button onClick={this.GetAllTask}>All</button>
+                        <button onClick={this.GetActiveTask}>Active</button>
+                        <button onClick={this.GetCompletedTask}>
+                          Completed
+                        </button>
+                        </div>
+                        </div>
+                        <div className="col-sm"></div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <div className="col-sm"></div>
             </div>
-            <div className="col-sm"></div>
           </div>
         </div>
       </div>
