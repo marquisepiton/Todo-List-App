@@ -1,6 +1,12 @@
-import { render } from "@testing-library/react";
-import React from "react";
-import App from "../App";
+/*
+This is a dummy file. 
+
+
+*/
+
+
+import React from 'react';
+
 // Child
 function List(props) {
   return (
@@ -14,12 +20,15 @@ function List(props) {
               <ul className="list-group list-group-flush">
                 <li className="list-group-item">
                   <input
+                    {...function clickCreateTask() {
+                      props.CreateTask(); /// This where I left off.
+                    }}
                     placeholder="What needs to be done?"
                     value={props.input}
                     onChange={props.CreateTask}
                   ></input>
                 </li>
-                {/* List of task of here.  */}
+
                 {props.tasks.map((task, index) => {
                   function clickDelete() {
                     props.DeleteTask(task.id);
@@ -64,9 +73,9 @@ function List(props) {
                     <div className="col-sm"></div>
                     <div className="col-sm"></div>
                     {props.numberOfTask} items left
-                    <button>All</button>
-                    <button>Active</button>
-                    <button>Completed</button>
+                    <button onClick={props.GetAllTask}>All</button>
+                    <button onClick={props.GetActiveTask}>Active</button>
+                    <button onClick={props.GetCompletedTask}>Completed</button>
                     <div className="col-sm"></div>
                   </div>
                 </div>
