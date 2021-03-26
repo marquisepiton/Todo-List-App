@@ -1,8 +1,9 @@
 
 import React from 'react';
 
-
+// Child
 function Task(props){
+    // Helper function
     function clickDelete() {
         props.DeleteTask(props.task.id);
       }
@@ -14,6 +15,7 @@ function Task(props){
       // Turn props.this into a component
       return (
         <li key={props.index} className="list-group-item">
+         {/* Button: for the user to mark there task done */}
           <input
             id="task"
             className="form-check-input"
@@ -25,6 +27,7 @@ function Task(props){
             onClick={clickComplete}
           ></input>
           {props.task.desc}
+          {/* Allow the user to delete their task. */}
           <button className='markButton' onClick={clickDelete}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +42,5 @@ function Task(props){
           </button>
         </li>
       );
-
 }
-
 export default Task;
