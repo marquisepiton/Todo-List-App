@@ -25,7 +25,7 @@ function Task(props){
             onClick={clickComplete}
           ></input>
           {props.task.desc}
-          <button onClick={clickDelete}>
+          <button className='markButton' onClick={clickDelete}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"

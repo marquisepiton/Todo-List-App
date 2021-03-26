@@ -153,7 +153,7 @@ class App extends React.Component {
         return item.completed === true;
       }
     };
-//============================================== The TO-DO list card================================================
+    //============================================== The TO-DO list card================================================
     // Return the card component.
     return (
       <div className="whole">
@@ -180,11 +180,15 @@ class App extends React.Component {
                     <div className="card-footer">
                       <div className="container">
                         <div className="row">
-                          <div className="col-sm"></div>
-                          <div className="col-sm"></div>
-                          <div className="item">
-                            {this.state.numberOfTask} items left
+                          <div className="col-sm">
+                            {" "}
+                           
                           </div>
+                          <div className="col-sm"></div>
+                        </div>
+                        <div className="item">
+                        <div className="col-sm">{this.state.numberOfTask} items left
+                        </div>
                           <div className="taskButtons">
                             <button onClick={this.GetAllTask}>All</button>
                             <button onClick={this.GetActiveTask}>Active</button>
@@ -193,7 +197,6 @@ class App extends React.Component {
                             </button>
                           </div>
                         </div>
-                        <div className="col-sm"></div>
                       </div>
                     </div>
                   </div>
